@@ -1,54 +1,58 @@
 <!DOCTYPE html>
-<html>
-<div class="container">
+<html lang="pt-BR">
+
 <head>
-  
-  <h1>Cadastro de Produtos</h1>
-
-  <form id="formProduto">
-
-    <linkreal="stylesheet" href="style.css"
-   <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   </head>
+
   <title>Cadastro de Produtos</title>
 
   <link rel="stylesheet" href="style.css">
 </head>
-    <label>Nome do produto:</label>
-    <input type="text" id="nome" placeholder="Digite o nome">
 
-    <label>Preço:</label>
-    <input type="number" id="preco" placeholder="Digite o preço" step="0.01">
+<body>
 
-    <label>Quantidade:</label>
-    <input type="number" id="quantidade" placeholder="Digite a quantidade">
+  <div class="container">
 
-    <button type="submit">Cadastrar</button>
+    <h1>Cadastro de Produtos</h1>
 
-  </form>
+    <form id="formProduto">
 
-  <h2>Produtos cadastrados</h2>
+      <label>Nome do produto:</label>
+      <input type="text" id="nome" placeholder="Digite o nome">
 
-  <table>
+      <label>Preço:</label>
+      <input type="number" id="preco" placeholder="Digite o preço" step="0.01">
 
-    <thead>
-      <tr>
-        <th>Produto</th>
-        <th>Preço</th>
-        <th>Quantidade</th>
-        <th>Ações</th>
-      </tr>
-    </thead>
+      <label>Quantidade:</label>
+      <input type="number" id="quantidade" placeholder="Digite a quantidade">
 
-    <tbody id="listaProdutos">
-    </tbody>
+      <button type="submit">Cadastrar</button>
 
-  </table>
+    </form>
 
-</div>
+    <h2>Produtos cadastrados</h2>
 
-  <scriptsrc="script.js"></scriptsrc/ script>
-</boby>
+    <table>
+
+      <thead>
+        <tr>
+          <th>Produto</th>
+          <th>Preço</th>
+          <th>Quantidade</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+
+      <tbody id="listaProdutos">
+      </tbody>
+
+    </table>
+
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+
 </html>
