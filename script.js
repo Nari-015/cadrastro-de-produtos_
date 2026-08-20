@@ -3,7 +3,6 @@ const listaProdutos = document.getElementById("listaProdutos");
 
 let produtos = [];
 
-// CADASTRAR PRODUTO
 form.addEventListener("submit", function(event) {
   event.preventDefault();
 
@@ -11,7 +10,6 @@ form.addEventListener("submit", function(event) {
   const preco = document.getElementById("preco").value;
   const quantidade = document.getElementById("quantidade").value;
 
-  // VALIDAÇÃO
   if (nome === "" || preco === "" || quantidade === "") {
     alert("⚠️ Preencha todos os campos!");
     return;
@@ -22,27 +20,20 @@ form.addEventListener("submit", function(event) {
     return;
   }
 
-  // CRIAR PRODUTO
   const produto = {
     nome: nome,
     preco: Number(preco),
     quantidade: Number(quantidade)
   };
 
-  // ADICIONAR À LISTA
   produtos.push(produto);
 
-  // ATUALIZAR TABELA
   mostrarProdutos();
 
-  // LIMPAR FORMULÁRIO
   form.reset();
 });
 
-
-// MOSTRAR PRODUTOS
 function mostrarProdutos() {
-
   listaProdutos.innerHTML = "";
 
   produtos.forEach(function(produto, indice) {
@@ -51,17 +42,9 @@ function mostrarProdutos() {
 
     linha.innerHTML = `
       <td>${produto.nome}</td>
-
+      <td>R$ ${produto.preco.toFixed(2).replace(".", ",")}</td>
+      <td>${produto.quantidade}</td>
       <td>
-        R$ ${produto.preco.toFixed(2).replace(".", ",")}
-      </td>
-
-      <td>
-        ${produto.quantidade}
-      </td>
-
-      <td>
-
         <button onclick="editarProduto(${indice})">
           ✏️ Editar
         </button>
@@ -69,7 +52,6 @@ function mostrarProdutos() {
         <button onclick="excluirProduto(${indice})">
           🗑️ Excluir
         </button>
-
       </td>
     `;
 
@@ -77,8 +59,6 @@ function mostrarProdutos() {
   });
 }
 
-
-// EXCLUIR PRODUTO
 function excluirProduto(indice) {
 
   const confirmar = confirm(
@@ -86,13 +66,23 @@ function excluirProduto(indice) {
   );
 
   if (confirmar) {
-
     produtos.splice(indice, 1);
-
     mostrarProdutos();
   }
 }
 
-
-// EDITAR PRODUTO
 function editarProduto(indice) {
+
+  const produto = produtos[indice];
+
+  document.getElementById("nome").value = produto.nome;
+  document.getElementById("preco").value = produto.preco;
+  document.getElementById("quantidade").value = produto.quantidade;
+
+  produtos.splice(indice, 1);
+
+  mostrarProdutos();
+
+  document.getElementById("nome").focus();
+}
+ 
