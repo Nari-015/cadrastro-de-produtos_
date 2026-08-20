@@ -1,7 +1,11 @@
 const form = document.getElementById("formProduto");
 const listaProdutos = document.getElementById("listaProdutos");
 
-let produtos = [];
+// Pega os produtos que já estão salvos
+let produtos = JSON.parse(localStorage.getItem("produtos")) || [];
+
+// Mostra os produtos assim que a página abrir
+mostrarProdutos();
 
 form.addEventListener("submit", function(event) {
   event.preventDefault();
@@ -27,6 +31,9 @@ form.addEventListener("submit", function(event) {
   };
 
   produtos.push(produto);
+
+  // Salva no navegador
+  localStorage.setItem("produtos", JSON.stringify(produtos));
 
   mostrarProdutos();
 
@@ -60,19 +67,21 @@ function mostrarProdutos() {
 }
 
 function excluirProduto(indice) {
-
   const confirmar = confirm(
     "Tem certeza que deseja excluir este produto?"
   );
 
   if (confirmar) {
     produtos.splice(indice, 1);
+
+    // Atualiza o armazenamento
+    localStorage.setItem("produtos", JSON.stringify(produtos));
+
     mostrarProdutos();
   }
 }
 
 function editarProduto(indice) {
-
   const produto = produtos[indice];
 
   document.getElementById("nome").value = produto.nome;
@@ -81,8 +90,10 @@ function editarProduto(indice) {
 
   produtos.splice(indice, 1);
 
+  // Atualiza o armazenamento
+  localStorage.setItem("produtos", JSON.stringify(produtos));
+
   mostrarProdutos();
 
   document.getElementById("nome").focus();
 }
- 
