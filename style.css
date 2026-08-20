@@ -1,0 +1,260 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  padding: 40px 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #27213d;
+
+  background:
+    radial-gradient(circle at 10% 20%, #c084fc 0%, transparent 25%),
+    radial-gradient(circle at 90% 80%, #2dd4bf 0%, transparent 25%),
+    linear-gradient(135deg, #4c1d95, #7c3aed, #0891b2);
+}
+
+/* CARD PRINCIPAL */
+
+.container {
+  width: 100%;
+  max-width: 950px;
+  margin: auto;
+  padding: 35px;
+
+  background: rgba(255, 255, 255, 0.96);
+  border-radius: 25px;
+
+  box-shadow:
+    0 20px 50px rgba(38, 12, 70, 0.35),
+    0 0 30px rgba(45, 212, 191, 0.2);
+}
+
+/* TÍTULO */
+
+h1 {
+  margin: 0 0 8px;
+  text-align: center;
+
+  font-size: 34px;
+  font-weight: 800;
+
+  color: #6d28d9;
+
+  text-shadow: 2px 2px 0 #ddd6fe;
+}
+
+h1::before {
+  content: "📦 ";
+}
+
+h2 {
+  margin-top: 35px;
+  color: #5b21b6;
+}
+
+/* FORMULÁRIO */
+
+form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+
+  padding: 25px;
+
+  background: linear-gradient(
+    135deg,
+    #f5f3ff,
+    #ecfeff
+  );
+
+  border: 2px solid #a78bfa;
+  border-radius: 18px;
+}
+
+label {
+  font-weight: bold;
+  color: #4c1d95;
+}
+
+input {
+  width: 100%;
+  padding: 13px;
+  margin-top: 6px;
+
+  font-size: 15px;
+
+  background: black;
+
+  border: 2px solid #c4b5fd;
+  border-radius: 9px;
+
+  outline: none;
+
+  transition: 0.25s;
+}
+
+input:focus {
+  border-color: #14b8a6;
+
+  box-shadow:
+    0 0 0 3px rgba(20, 184, 166, 0.2);
+}
+
+/* BOTÃO CADASTRAR */
+
+form button {
+  grid-column: 1 / -1;
+
+  padding: 14px;
+
+  color: purple;
+  font-size: 16px;
+  font-weight: bold;
+
+  background: linear-gradient(
+    90deg,
+    #7c3aed,
+    #0891b2
+  );
+
+  border: none;
+  border-radius: 10px;
+
+  cursor: pointer;
+
+  transition: 0.25s;
+}
+
+form button:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 8px 20px rgba(124, 58, 237, 0.35);
+}
+
+/* TABELA */
+
+table {
+  width: 100%;
+  margin-top: 15px;
+
+  border-collapse: separate;
+  border-spacing: 0;
+
+  overflow: hidden;
+
+  border: 2px solid #a78bfa;
+  border-radius: 15px;
+}
+
+/* CABEÇALHO DA TABELA */
+
+th {
+  padding: 14px;
+
+  color: red;
+
+  background: linear-gradient(
+    90deg,
+    #6d28d9,
+    #0891b2
+  );
+}
+
+/* CÉLULAS */
+
+td {
+  padding: 13px;
+  text-align: center;
+
+  border-top: 1px solid #ddd6fe;
+}
+
+tbody tr:nth-child(even) {
+  background: #f5f3ff;
+}
+
+tbody tr:hover {
+  background: #ccfbf1;
+}
+
+/* BOTÕES DA TABELA */
+
+td button {
+  margin: 3px;
+  padding: 8px 12px;
+
+  border: none;
+  border-radius: 7px;
+
+  color: blue;
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+/* EDITAR — TURQUESA */
+
+td button:first-child {
+  background: #0d9488;
+}
+
+td button:first-child:hover {
+  background: #0f766e;
+  transform: scale(1.05);
+}
+
+/* EXCLUIR — VERMELHO */
+
+td button:last-child {
+  background: #dc2626;
+}
+
+td button:last-child:hover {
+  background: #b91c1c;
+  transform: scale(1.05);
+}
+
+/* CELULAR */
+
+@media (max-width: 650px) {
+
+  body {
+    padding: 15px;
+  }
+
+  .container {
+    padding: 20px;
+    border-radius: 18px;
+  }
+
+  h1 {
+    font-size: 26px;
+  }
+
+  form {
+    grid-template-columns: 1fr;
+  }
+
+  form button {
+    grid-column: auto;
+  }
+
+  table {
+    font-size: 12px;
+  }
+
+  th,
+  td {
+    padding: 8px 4px;
+  }
+
+  td button {
+    padding: 6px 8px;
+    font-size: 11px;
+  }
+}
